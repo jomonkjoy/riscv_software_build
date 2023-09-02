@@ -7,7 +7,7 @@ MEMORY
     flash (rx) : ORIGIN = 0x00000000, LENGTH = 0x10000
 
     /* Data memory (RAM) */
-    ram (rw) : ORIGIN = 0x20000000, LENGTH = 0x8000
+    ram (rw) : ORIGIN = 0x20000000, LENGTH = 0x10000
 }
 
 /* Entry point */

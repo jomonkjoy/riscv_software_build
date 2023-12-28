@@ -25,12 +25,11 @@ $(HEX_FILE): $(ELF_OUT)
 
 # Xilinx FPGA memory initialization files in HEX format
 $(IMEM_FILE): $(ELF_OUT)
-	$(OBJCOPY) -O verilog $< $(IMEM_FILE) --set-section-flags .data=NOLOAD
+	$(OBJCOPY) -O verilog $< $(IMEM_FILE) --only-section=.text --verilog-data-width 4
 
 # Xilinx FPGA memory initialization files in HEX format
 $(DMEM_FILE): $(ELF_OUT)
-	$(OBJCOPY) -O verilog $< $(DMEM_FILE) --set-section-flags .text=NOLOAD
-
+	$(OBJCOPY) -O verilog $< $(DMEM_FILE) --only-section=.data --verilog-data-width 4
 
 # If you want to view the disassembled code, you can use a RISC-V disassembler like riscv32-unknown-elf-objdump:
 $(DUMP): $(ELF_OUT)

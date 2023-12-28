@@ -22,7 +22,7 @@
 
 package rv32i_package;
 
-    localparam RESET_VECTOR = 32'h0001008C;
+    localparam RESET_VECTOR = 32'h00000000;
     localparam RV32I_NOP    = 32'h00000013;
     
     // registers

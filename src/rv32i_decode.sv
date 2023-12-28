@@ -97,6 +97,21 @@ module rv32i_decode(
         .reset(reset)
     );
     
+    rv32i_decode_fmt decode_fmt (
+        // Instruction decode output
+        .decode_imm(),
+        .decode_rs1_address(),
+        .decode_rs2_address(),
+        .decode_rd_address(),
+        .decode_funct12(),
+        .decode_funct7(),
+        .decode_funct3(),
+        .decode_opcode(),
+        // Input from Instruction Fetch
+        .fetch_instruction(fetch_instruction),
+        .fetch_pc(fetch_pc)
+    );
+    
     // decode immediates
     assign imm_utype  = {    fetch_instruction[31],   fetch_instruction[30:12], {12{1'b0}}};
     assign imm_jtype  = {{12{fetch_instruction[31]}}, fetch_instruction[19:12],fetch_instruction[20],fetch_instruction[30:21],1'b0};
